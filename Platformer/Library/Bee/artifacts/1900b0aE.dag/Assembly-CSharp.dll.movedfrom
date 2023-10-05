@@ -19,13 +19,11 @@ SpriteLibCategory
 SpriteLibraryAsset
 SpriteResolver
 SpriteSkin
-IKEditorManagerHelper
-UnityEditor
+CCDSolver2D
+UnityEngine
 Experimental
 U2D
 IK
-CCDSolver2D
-UnityEngine
 FabrikSolver2D
 IKChain2D
 IKManager2D
