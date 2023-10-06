@@ -106,7 +106,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1181712447
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 2
   m_Sprite: {fileID: 4239978505451197972, guid: a7069911a4f660a45a40957147139ac1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -152,7 +152,7 @@ MonoBehaviour:
   wallDetec: {fileID: 3360328254898957538}
   whatIsWall:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 72
   attackDistance: 10
   canAttack: 0
   shootingTime: 2
