@@ -43,6 +43,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: background 2
+    uniqueID: 1266100949
+    locked: 0
   - name: background
     uniqueID: 1259484781
     locked: 0
@@ -66,6 +69,9 @@ TagManager:
     locked: 0
   - name: foreground
     uniqueID: 2500825999
+    locked: 0
+  - name: fog
+    uniqueID: 1485490383
     locked: 0
   - name: canvas
     uniqueID: 3939454073
