@@ -358,6 +358,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/VSSettingsProvider.ref.dll"
+"Assets/MonarchWingsBehav.cs"
 "Assets/scripts/enemies/cristalEnemy.cs"
 "Assets/scripts/enemies/cristalEnemyHealth.cs"
 "Assets/scripts/enemies/enemyAI.cs"

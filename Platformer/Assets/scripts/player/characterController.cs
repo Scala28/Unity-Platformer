@@ -66,14 +66,6 @@ public class characterController : MonoBehaviour
 
     [Header("Animations")]
     public Animator anim;
-    /*1. run
-     2. idle
-     3. jump
-     4. extra jump
-     5. dash
-     6. wall slide
-     7. attack
-     8. hurt*/
 
     // Start is called before the first frame update
     void Start()
@@ -131,6 +123,7 @@ public class characterController : MonoBehaviour
             isjumping = true;
         }else if(Input.GetButtonDown("Jump") && !isGrounded && !wallSliding && extraJump > 0 && canExtraJump && currentStamina >= extraJumpStamina && !knockBack)
         {
+            anim.SetTrigger("monarchWings");
             rb.velocity = Vector2.up * extraJumpForce;
             extraJump--;
             RemoveStamina(extraJumpStamina);
