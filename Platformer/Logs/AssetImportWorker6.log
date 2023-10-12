@@ -15,11 +15,11 @@ C:/Users/scalu/OneDrive/Desktop/GitHub/Unity-Platformer/Platformer
 -logFile
 Logs/AssetImportWorker6.log
 -srvPort
-50393
+50767
 Successfully changed project path to: C:/Users/scalu/OneDrive/Desktop/GitHub/Unity-Platformer/Platformer
 C:/Users/scalu/OneDrive/Desktop/GitHub/Unity-Platformer/Platformer
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 424.86 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 437.82 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.1.12f1 (afcadd793de6)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.1.12f1/Editor/Data/Resources/UnitySubsystems
@@ -35,48 +35,42 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.1.12f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.1.12f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.1.12f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56224
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56504
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.1.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.008099 seconds.
+Registered in 0.006119 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 583.92 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 421.98 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in 11.089 seconds
+- Completed reload, in  6.831 seconds
 Domain Reload Profiling:
-	ReloadAssembly (11089ms)
-		BeginReloadAssembly (176ms)
+	ReloadAssembly (6832ms)
+		BeginReloadAssembly (204ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (2ms)
-		EndReloadAssembly (2599ms)
-			LoadAssemblies (167ms)
+			CreateAndSetChildDomain (4ms)
+		EndReloadAssembly (1880ms)
+			LoadAssemblies (192ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (791ms)
+			SetupTypeCache (619ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (166ms)
-			SetupLoadedEditorAssemblies (1420ms)
+			RebuildScriptCaches (145ms)
+			SetupLoadedEditorAssemblies (886ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (34ms)
+				InitializePlatformSupportModulesInManaged (22ms)
 				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (584ms)
-				BeforeProcessingInitializeOnLoad (9ms)
-				ProcessInitializeOnLoadAttributes (608ms)
-				ProcessInitializeOnLoadMethodAttributes (184ms)
+				RefreshPlugins (422ms)
+				BeforeProcessingInitializeOnLoad (4ms)
+				ProcessInitializeOnLoadAttributes (348ms)
+				ProcessInitializeOnLoadMethodAttributes (88ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (1ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.076241 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\scalu\OneDrive\Desktop\GitHub\Unity-Platformer\Platformer\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\scalu\OneDrive\Desktop\GitHub\Unity-Platformer\Platformer\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 500.23 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
+Registered in 0.031469 seconds.

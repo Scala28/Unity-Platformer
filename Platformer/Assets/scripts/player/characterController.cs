@@ -9,7 +9,7 @@ public class characterController : MonoBehaviour
     [Header("movement")]
     public float speed;
     private float moveInput;
-    private bool facingRight;
+    public bool facingRight;
 
     [Header("jump")]
     public Transform groundCeck;
@@ -67,6 +67,8 @@ public class characterController : MonoBehaviour
     [Header("Animations")]
     public Animator anim;
 
+    private float _fallSpeedYDampingChangeTreshold;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -85,12 +87,15 @@ public class characterController : MonoBehaviour
         staminaBar.SetMaxStamina(maxStamina);
 
         knockBack = false;
+
+        _fallSpeedYDampingChangeTreshold = CameraManager.instance._fallSpeedYDampingChangeTreshold;
+        CameraManager.instance.CallCameraFaceDirection();
     }
 
     // Update is called once per frame
     void Update()
     {
-        CeckStatements();
+        CeckStates();
         
         CeckInput();
 
@@ -102,15 +107,19 @@ public class characterController : MonoBehaviour
 
         if(moveInput < 0 && facingRight && !knockBack)
         {
-            Flip();
+            //Flip()
+            Flip2(180f);
         }
         else if(moveInput > 0 && !facingRight && !knockBack)
         {
-            Flip();
+            //Flip()
+            Flip2(0f);
         }
 
         SetAnim();
         CeckKnockBack();
+
+        CameraYDamping();
     }
 
     void CeckInput()
@@ -191,7 +200,7 @@ public class characterController : MonoBehaviour
         }
     }
 
-    void CeckStatements()
+    void CeckStates()
     {
         isGrounded = Physics2D.OverlapCircle(groundCeck.position, ceckRadious, whatIsGround);
         if (isGrounded)
@@ -209,8 +218,6 @@ public class characterController : MonoBehaviour
         {
             wallSliding = false;
         }
-
-        
     }
 
     void SetAnim()
@@ -264,6 +271,14 @@ public class characterController : MonoBehaviour
 
         wallJumpDirection *= -1;
     }
+    void Flip2(float Ydegrees)
+    {
+        Vector3 rotator = new Vector3(transform.rotation.x, Ydegrees, transform.rotation.z);
+        transform.rotation = Quaternion.Euler(rotator);
+        facingRight = !facingRight;
+
+        CameraManager.instance.CallCameraFaceDirection();
+    }
     void RemoveStamina(int stamina)
     {
         currentStamina -= stamina;
@@ -289,6 +304,20 @@ public class characterController : MonoBehaviour
         regen = null;
     }
 
+    void CameraYDamping()
+    {
+        if (rb.velocity.y < _fallSpeedYDampingChangeTreshold && !CameraManager.instance.IsLerpingYDamping &&
+            !CameraManager.instance.LerpedFromPlayerFalling)
+        {
+            CameraManager.instance.LerpYDamping(true);
+        }
+
+        if (rb.velocity.y >= 0 && !CameraManager.instance.IsLerpingYDamping && CameraManager.instance.LerpedFromPlayerFalling)
+        {
+            CameraManager.instance.LerpedFromPlayerFalling = false;
+            CameraManager.instance.LerpYDamping(false);
+        }
+    }
     void SetCanDashToTrue()
     {
         canDash = true;
