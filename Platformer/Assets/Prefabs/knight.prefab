@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 937385353874891789}
   - component: {fileID: 937385353874891787}
   - component: {fileID: 937385353874891788}
+  - component: {fileID: 5636336593884009257}
   - component: {fileID: 937385353874892275}
   - component: {fileID: 937385353874891786}
   - component: {fileID: 937385353874891784}
@@ -307,6 +308,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.1261594, y: 4.9935317}
   m_EdgeRadius: 0
+--- !u!58 &5636336593884009257
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937385353874892274}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -2.4317706}
+  serializedVersion: 2
+  m_Radius: 1.1
 --- !u!50 &937385353874892275
 Rigidbody2D:
   serializedVersion: 4
@@ -341,6 +358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 17
+  facingRight: 0
   groundCeck: {fileID: 937385353113405461}
   ceckRadious: 0.4
   whatIsGround:
