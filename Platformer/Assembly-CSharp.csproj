@@ -63,6 +63,7 @@
     <Compile Include="Assets\LeanTween\Framework\LeanTween.cs" />
     <Compile Include="Assets\LeanTween\Framework\LTDescr.cs" />
     <Compile Include="Assets\LeanTween\Framework\LeanTweenExt.cs" />
+    <Compile Include="Assets\scripts\Camera\CameraControlTrigger.cs" />
     <Compile Include="Assets\scripts\enemies\pathfinderGFX.cs" />
     <Compile Include="Assets\LeanTween\Framework\LTSeq.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\TestingUnitTests.cs" />
@@ -74,16 +75,16 @@
     <Compile Include="Assets\scripts\score\coin.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplines.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralEventsListeners.cs" />
-    <Compile Include="Assets\scripts\CameraManager.cs" />
+    <Compile Include="Assets\scripts\Camera\CameraManager.cs" />
     <Compile Include="Assets\scripts\enemies\cristalEnemyHealth.cs" />
-    <Compile Include="Assets\scripts\player\Health.cs" />
-    <Compile Include="Assets\scripts\player\attackController.cs" />
+    <Compile Include="Assets\scripts\knight\Health.cs" />
+    <Compile Include="Assets\scripts\knight\attackController.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\TestingZLegacy.cs" />
     <Compile Include="Assets\scripts\enemies\patrolEnemy.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\TestingZLegacyExt.cs" />
-    <Compile Include="Assets\scripts\staminaBar.cs" />
+    <Compile Include="Assets\scripts\knight\staminaBar.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathBezier2d.cs" />
-    <Compile Include="Assets\scripts\player\characterController.cs" />
+    <Compile Include="Assets\scripts\knight\characterController.cs" />
     <Compile Include="Assets\LeanTween\Framework\LTDescrOptional.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralEasingTypes.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralSequencer.cs" />
@@ -92,7 +93,7 @@
     <Compile Include="Assets\LeanTween\Examples\Scripts\LogoCinematic.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralCameraShake.cs" />
     <Compile Include="Assets\LeanTween\Examples\Archived\TestingPunch.cs" />
-    <Compile Include="Assets\scripts\player\playerController.cs" />
+    <Compile Include="Assets\scripts\knight\playerController.cs" />
     <Compile Include="Assets\LeanTween\Framework\LeanAudio.cs" />
     <Compile Include="Assets\scripts\particle\DestroyParticle.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSpline.cs" />
@@ -103,16 +104,15 @@
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplineTrack.cs" />
     <Compile Include="Assets\scripts\score\scoreManager.cs" />
     <Compile Include="Assets\LeanTween\Framework\LeanTest.cs" />
-    <Compile Include="Assets\MonarchWingsBehav.cs" />
+    <Compile Include="Assets\scripts\knight\MonarchWingsBehav.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSpline2d.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplinePerformance.cs" />
     <Compile Include="Assets\scripts\enemies\cristalEnemy.cs" />
-    <Compile Include="Assets\scripts\player\betterJump.cs" />
+    <Compile Include="Assets\scripts\knight\betterJump.cs" />
     <Compile Include="Assets\scripts\enemies\simpleEnemy.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralBasic.cs" />
     <Compile Include="Assets\LeanTween\Examples\Archived\TestingRigidbodyCS.cs" />
     <Compile Include="Assets\LeanTween\Examples\Scripts\Following.cs" />
-    <Compile Include="Assets\scripts\CameraControlTrigger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
