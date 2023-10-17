@@ -128,6 +128,7 @@ public class characterController : MonoBehaviour
     void CeckInput()
     {
         moveInput = Input.GetAxis("Horizontal");
+        Debug.Log(moveInput);
 
         if(Input.GetButtonDown("Jump") && isGrounded &&!knockBack)
         {

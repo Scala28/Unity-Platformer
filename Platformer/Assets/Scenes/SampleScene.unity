@@ -5659,7 +5659,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1815286, y: 1}
+    m_SensorSize: {x: 2.2738853, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5708,7 +5708,7 @@ GameObject:
   m_Component:
   - component: {fileID: 136799739}
   - component: {fileID: 136799738}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12795,7 +12795,7 @@ GameObject:
   m_Component:
   - component: {fileID: 498408528}
   - component: {fileID: 498408529}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pillars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13319,7 +13319,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.91093445, y: -1.6222415, z: -13.5092125}
+  m_LocalPosition: {x: -0.19696808, y: -1.622242, z: -13.5092125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1320539599}
@@ -14943,6 +14943,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &672440154 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9089629473400009241, guid: fe874c2c875ea7440817d97f01bcd9e7, type: 3}
+  m_PrefabInstance: {fileID: 4245724587844377928}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &684781422
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18213,7 +18218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1255129270}
   - component: {fileID: 1255129271}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pillars (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24282,7 +24287,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1428816656}
   - component: {fileID: 1428816657}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27741,7 +27746,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1759193311}
   - component: {fileID: 1759193312}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pillars (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30439,6 +30444,14 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.121127844
       objectReference: {fileID: 0}
+    - target: {fileID: 937385353874891788, guid: 885cd7fd71cffb749894acc4b512043f, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 7.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 937385353874891788, guid: 885cd7fd71cffb749894acc4b512043f, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 8.402696
+      objectReference: {fileID: 0}
     - target: {fileID: 937385353874891789, guid: 885cd7fd71cffb749894acc4b512043f, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -30449,11 +30462,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 937385353874891790, guid: 885cd7fd71cffb749894acc4b512043f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 88.493
+      value: 87.76
       objectReference: {fileID: 0}
     - target: {fileID: 937385353874891790, guid: 885cd7fd71cffb749894acc4b512043f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.76
+      value: 9.46
       objectReference: {fileID: 0}
     - target: {fileID: 937385353874891790, guid: 885cd7fd71cffb749894acc4b512043f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -30546,7 +30559,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5392186448369155168, guid: fe874c2c875ea7440817d97f01bcd9e7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5392186448369155168, guid: fe874c2c875ea7440817d97f01bcd9e7, type: 3}
       propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5392186448369155168, guid: fe874c2c875ea7440817d97f01bcd9e7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5392186448369155168, guid: fe874c2c875ea7440817d97f01bcd9e7, type: 3}
@@ -30554,7 +30575,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1141748181}
     - target: {fileID: 5392186448369155168, guid: fe874c2c875ea7440817d97f01bcd9e7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1141748181}
+    - target: {fileID: 5392186448369155168, guid: fe874c2c875ea7440817d97f01bcd9e7, type: 3}
       propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5392186448369155168, guid: fe874c2c875ea7440817d97f01bcd9e7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5392186448369155168, guid: fe874c2c875ea7440817d97f01bcd9e7, type: 3}
@@ -30562,13 +30591,29 @@ PrefabInstance:
       value: OnMoveInput
       objectReference: {fileID: 0}
     - target: {fileID: 5392186448369155168, guid: fe874c2c875ea7440817d97f01bcd9e7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnJumpInput
+      objectReference: {fileID: 0}
+    - target: {fileID: 5392186448369155168, guid: fe874c2c875ea7440817d97f01bcd9e7, type: 3}
       propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerInputHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5392186448369155168, guid: fe874c2c875ea7440817d97f01bcd9e7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PlayerInputHandler, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5392186448369155168, guid: fe874c2c875ea7440817d97f01bcd9e7, type: 3}
       propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5392186448369155168, guid: fe874c2c875ea7440817d97f01bcd9e7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850647315688242942, guid: fe874c2c875ea7440817d97f01bcd9e7, type: 3}
+      propertyPath: groundCheck
+      value: 
+      objectReference: {fileID: 672440154}
     - target: {fileID: 9089629472013606400, guid: fe874c2c875ea7440817d97f01bcd9e7, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 3.44

@@ -28,9 +28,13 @@ public class PlayerIdleState : PlayerGroundedState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if(xInput != 0f)
+        if(Mathf.Abs(xInput) > .1f)
         {
             stateMachine.ChangeState(player.MoveState);
+        }
+        else
+        {
+            player.SetVelocityX(0);
         }
     }
 
@@ -38,4 +42,5 @@ public class PlayerIdleState : PlayerGroundedState
     {
         base.PhysicsUpdate();
     }
+
 }

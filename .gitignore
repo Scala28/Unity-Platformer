@@ -2,7 +2,7 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
-[Ll]ibrary/
+/Platformer/[Ll]ibrary/
 /Platformer/[Tt]emp/
 /Platformer/[Oo]bj/
 /Platformer/[Bb]uild/

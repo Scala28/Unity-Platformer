@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5392186448369155168}
   - component: {fileID: 6639323513121711944}
   - component: {fileID: 7850647315688242942}
+  - component: {fileID: 2649521563141222803}
   m_Layer: 8
   m_Name: knight (1)
   m_TagString: Player
@@ -226,6 +227,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e1e4bcdd2837849951d462d55408d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  JumpInput: 0
+  JumpHoldInput: 0
+  inputHoldTime: 0.2
+  smoothInputSpeed: 0.17
 --- !u!114 &7850647315688242942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,6 +244,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 9e56b11822d5e7a45be329972293e86d, type: 2}
+  groundCheck: {fileID: 0}
+--- !u!114 &2649521563141222803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9089629472013606910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77707e2bc2cdffa4b8bd96ccaa245678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallMultiplier: 2.5
 --- !u!1 &9089629472036292032
 GameObject:
   m_ObjectHideFlags: 0

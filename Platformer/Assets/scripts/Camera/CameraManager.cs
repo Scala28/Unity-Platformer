@@ -75,7 +75,7 @@ public class CameraManager : MonoBehaviour
     private float DetermineEndPoint()
     {
 
-        if (_player.FacingDirection == 1)
+        if (_player.FacingRight)
         {
             return 0.45f;
         }

@@ -9,6 +9,7 @@ public class PlayerState
     protected PlayerData playerData;
 
     protected float startTime;
+    protected bool isAnimationFinished;
 
     private string animBoolName;
 
@@ -21,8 +22,10 @@ public class PlayerState
     }
     public virtual void Enter()
     {
+        Debug.Log(animBoolName);
         startTime = Time.time;
         player.Anim.SetBool(animBoolName, true);
+        isAnimationFinished = false;
     }
     public virtual void Exit()
     {
@@ -40,4 +43,6 @@ public class PlayerState
     {
 
     }
+    public virtual void AnimationTrigger() { }
+    public virtual void AnimationFinishTrigger() => isAnimationFinished = true;
 }
