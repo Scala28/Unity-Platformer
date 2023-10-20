@@ -7,6 +7,7 @@ public class PlayerInAirState : PlayerState
     private float xInput;
     private bool isGrounded;
     private float jumpHoldTime;
+    private bool jumpInput;
     public PlayerInAirState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) 
         : base(player, stateMachine, playerData, animBoolName)
     {
@@ -34,22 +35,27 @@ public class PlayerInAirState : PlayerState
         base.LogicUpdate();
         HoldJump();
         xInput = player.InputHandler.InputX;
+        jumpInput = player.InputHandler.JumpInput;
         if(isGrounded && player.CurrentVelocity.y < .01f)
         {
             player.Anim.SetFloat("yVelocity", 0f);
             stateMachine.ChangeState(player.LandState);
         }
+        else if(jumpInput && player.JumpState.CanJump())
+        {
+            stateMachine.ChangeState(player.JumpState);
+        }
         else
         {
             player.CheckFlip(xInput);
-            player.SetVelocityX(playerData.MovementSpeed * xInput);
+            player.SetVelocityX(playerData.MovementSpeed * xInput * playerData.InAirMovementControl);
 
             player.Anim.SetFloat("yVelocity", player.CurrentVelocity.y);
         }
     }
     private void HoldJump()
     {
-        if (player.InputHandler.JumpHoldInput && player.InputHandler.JumpInput)
+        if (player.InputHandler.JumpHoldInput && player.JumpState.FirstJump()) 
         {
             if (jumpHoldTime > 0)
             {
@@ -58,7 +64,7 @@ public class PlayerInAirState : PlayerState
             }
             else
             {
-                player.InputHandler.UseJump();
+                player.InputHandler.UseJumpHold();
             }
         }
         else { jumpHoldTime = 0; }

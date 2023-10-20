@@ -77,17 +77,15 @@ public class PlayerInputHandler : MonoBehaviour
     #endregion
 
     #region Setter
-    public void UseJump()
-    {
-        JumpInput = false;
-        JumpHoldInput = false;
-    }
+    public void UseJump() => JumpInput = false;
+
+    public void UseJumpHold() => JumpHoldInput = false;
     #endregion
 
     #region Checks
     private void CheckInputHoldTime()
     {
-        if(JumpInput && !JumpHoldInput && Time.time >= jumpInputStartTime + inputHoldTime)
+        if(JumpInput && Time.time >= jumpInputStartTime + inputHoldTime)
         {
             JumpInput = false;
         }

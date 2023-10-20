@@ -19,13 +19,23 @@ public class Player : MonoBehaviour
 
     #region Components
     public Animator Anim { get; private set; }
+
+    public SpriteRenderer Renderer { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; }
     public Rigidbody2D RB { get; private set; }
     #endregion
 
     #region Check Transforms
+    [Header("Transform checks")]
     [SerializeField]
     private Transform groundCheck;
+    #endregion
+
+    #region Shader effects
+    [Header("Shader effects")]
+    public Material WingsGlow;
+    public Material PrevRendererMaterial { get; private set; }
+
     #endregion
 
     #region Others
@@ -53,6 +63,7 @@ public class Player : MonoBehaviour
         Anim = GetComponent<Animator>();
         InputHandler = GetComponent<PlayerInputHandler>();
         RB = GetComponent<Rigidbody2D>();
+        Renderer = GetComponent<SpriteRenderer>();
 
         StateMachine.Initialize(IdleState);
         FacingRight = true;
@@ -82,6 +93,12 @@ public class Player : MonoBehaviour
         workSpace.Set(CurrentVelocity.x, velocity);
         RB.velocity = workSpace;
         CurrentVelocity = workSpace;
+    }
+
+    public void SetRendererMaterial(Material mat)
+    {
+        PrevRendererMaterial = Renderer.material;
+        Renderer.material = mat;
     }
     #endregion
 

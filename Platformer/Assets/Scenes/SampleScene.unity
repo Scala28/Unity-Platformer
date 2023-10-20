@@ -30554,6 +30554,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2649521563141222803, guid: fe874c2c875ea7440817d97f01bcd9e7, type: 3}
+      propertyPath: fallMultiplier
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5392186448369155168, guid: fe874c2c875ea7440817d97f01bcd9e7, type: 3}
       propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -30610,6 +30614,10 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7850647315688242942, guid: fe874c2c875ea7440817d97f01bcd9e7, type: 3}
+      propertyPath: WingsGlow
+      value: 
+      objectReference: {fileID: 2100000, guid: ee8fc74cedbe86642813a75a982f9a85, type: 2}
     - target: {fileID: 7850647315688242942, guid: fe874c2c875ea7440817d97f01bcd9e7, type: 3}
       propertyPath: groundCheck
       value: 
