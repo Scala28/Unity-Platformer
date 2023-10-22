@@ -28,7 +28,7 @@ public class PlayerMoveState : PlayerGroundedState
     {
         base.LogicUpdate();
         player.CheckFlip(xInput);
-        if (Mathf.Abs(xInput) < .1f)
+        if (Mathf.Abs(xInput) < .1f && !isExitingState)
         {
             stateMachine.ChangeState(player.IdleState);
         }

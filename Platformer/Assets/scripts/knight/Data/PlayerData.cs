@@ -16,7 +16,18 @@ public class PlayerData : ScriptableObject
     [Header("In Air state")]
     public float InAirMovementControl = .3f;
 
+    [Header("Wall slide state")]
+    public float WallSlideSpeed = .5f;
+
+    [Header("Wall jump state")]
+    public float WallJumpForce = 10.0f;
+    public Vector2 WallJumpAngle = new Vector2(3f, 3f);
+    public float WallJumpTime = .2f;
+
     [Header("Check variables")]
     public float GroundCheckRadius = .4f;
     public LayerMask WhatIsGround;
+
+    public float WallCheckRadius = .4f;
+    public LayerMask WhatIsWall;
 }

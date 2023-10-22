@@ -5,9 +5,10 @@ using UnityEngine;
 public class PlayerInAirState : PlayerState
 {
     private float xInput;
-    private bool isGrounded;
+    private bool isGrounded, isTouchingWall;
     private float jumpHoldTime;
     private bool jumpInput;
+    private bool canHoldJump;
     public PlayerInAirState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) 
         : base(player, stateMachine, playerData, animBoolName)
     {
@@ -17,12 +18,14 @@ public class PlayerInAirState : PlayerState
     {
         base.DoChecks();
         isGrounded = player.CheckGrounded();
+        isTouchingWall = player.CheckTouchingWall();    
     }
 
     public override void Enter()
     {
         base.Enter();
         jumpHoldTime = playerData.JumpHoldTime;
+        canHoldJump = player.JumpState.FirstJump() && stateMachine.PrevState != player.WallJumpState;
     }
 
     public override void Exit()
@@ -43,11 +46,21 @@ public class PlayerInAirState : PlayerState
         }
         else if(jumpInput && player.JumpState.CanJump())
         {
+            player.InputHandler.UseJump();
             stateMachine.ChangeState(player.JumpState);
+        }
+        else if (isTouchingWall)
+        {
+            if(((player.InputHandler.RawMovementInput.x > 0 && player.FacingDirection() == 1) || 
+                (player.InputHandler.RawMovementInput.x < 0 && player.FacingDirection() == -1 )) && !(player.CurrentVelocity.y > 0))
+            {
+                stateMachine.ChangeState(player.WallSlideState);
+
+            }
         }
         else
         {
-            player.CheckFlip(xInput);
+            player.CheckFlip(player.InputHandler.RawMovementInput.x);
             player.SetVelocityX(playerData.MovementSpeed * xInput * playerData.InAirMovementControl);
 
             player.Anim.SetFloat("yVelocity", player.CurrentVelocity.y);
@@ -55,7 +68,7 @@ public class PlayerInAirState : PlayerState
     }
     private void HoldJump()
     {
-        if (player.InputHandler.JumpHoldInput && player.JumpState.FirstJump()) 
+        if (player.InputHandler.JumpHoldInput && canHoldJump) 
         {
             if (jumpHoldTime > 0)
             {

@@ -43,9 +43,9 @@ public class PlayerInputHandler : MonoBehaviour
     {
         RawMovementInput = moveAction.ReadValue<Vector2>();
         currentMovementInput = Vector2.SmoothDamp(currentMovementInput, RawMovementInput, ref smoothInputVelocity, smoothInputSpeed);
-        Debug.Log(currentMovementInput);
         InputX = currentMovementInput.x;
         InputY = currentMovementInput.y;
+        Debug.Log(InputX);
 
         CheckInputHoldTime();
     }

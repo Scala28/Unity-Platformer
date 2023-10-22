@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     public PlayerJumpState JumpState { get; private set; }
     public PlayerInAirState InAirState { get; private set; }
     public PlayerLandState LandState { get; private set; }
+    public PlayerWallSlideState WallSlideState { get; private set; }
+    public PlayerWallJumpState WallJumpState { get; private set; }
 
     [SerializeField]
     private PlayerData playerData;
@@ -29,6 +31,8 @@ public class Player : MonoBehaviour
     [Header("Transform checks")]
     [SerializeField]
     private Transform groundCheck;
+    [SerializeField]
+    private Transform wallCheck;
     #endregion
 
     #region Shader effects
@@ -39,6 +43,8 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Others
+    [Header("Others")]
+    public bool ShowGiwmos;
     public Vector2 CurrentVelocity { get; private set; }
     public bool FacingRight { get; private set; }
 
@@ -57,6 +63,8 @@ public class Player : MonoBehaviour
         JumpState = new PlayerJumpState(this, StateMachine, playerData, "inAir");
         InAirState = new PlayerInAirState(this, StateMachine, playerData, "inAir");
         LandState = new PlayerLandState(this, StateMachine, playerData, "land");
+        WallSlideState = new PlayerWallSlideState(this, StateMachine, playerData, "wallSlide");
+        WallJumpState = new PlayerWallJumpState(this, StateMachine, playerData, "wallJump");
     }
     private void Start()
     {
@@ -94,7 +102,13 @@ public class Player : MonoBehaviour
         RB.velocity = workSpace;
         CurrentVelocity = workSpace;
     }
-
+    public void SetVelocity(float velocity, Vector2 angle, int direction)
+    {
+        angle.Normalize();
+        workSpace.Set(angle.x * direction * velocity, angle.y * velocity);
+        RB.velocity = workSpace;
+        CurrentVelocity = workSpace;
+    }
     public void SetRendererMaterial(Material mat)
     {
         PrevRendererMaterial = Renderer.material;
@@ -107,6 +121,10 @@ public class Player : MonoBehaviour
     public bool CheckGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, playerData.GroundCheckRadius, playerData.WhatIsGround);
+    }
+    public bool CheckTouchingWall()
+    {
+        return Physics2D.OverlapCircle(wallCheck.position, playerData.WallCheckRadius, playerData.WhatIsWall);
     }
     public void CheckFlip(float xInput)
     {
@@ -121,7 +139,10 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Other functions
-
+    public int FacingDirection()
+    {
+        return FacingRight ? 1 : -1;
+    }
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
     private void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
     private void Flip()
@@ -131,10 +152,18 @@ public class Player : MonoBehaviour
 
         CameraManager.instance.CallCameraFaceDirection();
     }
+    public void FlipSprite()
+    {
+        Renderer.flipX = !Renderer.flipX;
+    }
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(groundCheck.position, playerData.GroundCheckRadius);
+        if (ShowGiwmos)
+        {
+            Gizmos.DrawWireSphere(groundCheck.position, playerData.GroundCheckRadius);
+            Gizmos.DrawWireSphere(wallCheck.position, playerData.WallCheckRadius);
+        }
     }
     #endregion
 }
