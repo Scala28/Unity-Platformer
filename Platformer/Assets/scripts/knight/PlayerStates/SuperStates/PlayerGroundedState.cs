@@ -6,6 +6,7 @@ public class PlayerGroundedState : PlayerState
 {
     protected float xInput;
     private bool JumpInput;
+    private bool dashInput;
     public PlayerGroundedState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) 
         : base(player, stateMachine, playerData, animBoolName)
     {
@@ -32,16 +33,22 @@ public class PlayerGroundedState : PlayerState
         base.LogicUpdate();
         xInput = player.InputHandler.InputX;
         JumpInput = player.InputHandler.JumpInput;
+        dashInput = player.InputHandler.DashInput;
 
         if (JumpInput && player.JumpState.CanJump())
         {
             player.InputHandler.UseJump();
             stateMachine.ChangeState(player.JumpState);
         }
-        if (!player.CheckGrounded())
+        else if (!player.CheckGrounded())
         {
             player.JumpState.DecreaseJumpsLeft();
             stateMachine.ChangeState(player.InAirState);
+        }
+        else if (dashInput && player.DashState.CheckCanDash())
+        {
+            player.InputHandler.UseDashInput();
+            stateMachine.ChangeState(player.DashState);
         }
     }
 

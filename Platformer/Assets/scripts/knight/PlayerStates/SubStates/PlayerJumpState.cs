@@ -23,7 +23,10 @@ public class PlayerJumpState : PlayerAbilityState
         else
         {
             player.Anim.SetBool("wings", true);
-            player.SetRendererMaterial(player.WingsGlow);
+            if(player.WingsGlow != null)
+            {
+                player.SetRendererMaterial(player.WingsGlow);
+            }
         }
 
     }
@@ -37,7 +40,7 @@ public class PlayerJumpState : PlayerAbilityState
                 isAbilityDone = true;
             }
         }
-        player.CheckFlip(xInput);
+        player.CheckFlip(player.InputHandler.RawMovementInput.x);
         player.SetVelocityX(playerData.MovementSpeed * xInput * playerData.InAirMovementControl);
     }
     public override void Exit()
@@ -46,7 +49,10 @@ public class PlayerJumpState : PlayerAbilityState
         if (!FirstJump())
         {
             player.Anim.SetBool("wings", false);
-            player.SetRendererMaterial(player.PrevRendererMaterial);
+            if(player.WingsGlow != null)
+            {
+                player.SetRendererMaterial(player.PrevRendererMaterial);
+            }
         }
     }
     public bool CanJump()

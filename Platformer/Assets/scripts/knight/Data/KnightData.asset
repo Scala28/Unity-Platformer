@@ -21,6 +21,9 @@ MonoBehaviour:
   WallJumpForce: 15
   WallJumpAngle: {x: 1, y: 3}
   WallJumpTime: 0.2
+  DashCoolDown: 1.5
+  DashSpeed: 40
+  DashTime: 0.2
   GroundCheckRadius: 0.4
   WhatIsGround:
     serializedVersion: 2

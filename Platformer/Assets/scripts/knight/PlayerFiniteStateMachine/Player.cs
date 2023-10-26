@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public PlayerLandState LandState { get; private set; }
     public PlayerWallSlideState WallSlideState { get; private set; }
     public PlayerWallJumpState WallJumpState { get; private set; }
+    public PlayerDashState DashState { get; private set; }
 
     [SerializeField]
     private PlayerData playerData;
@@ -38,6 +39,7 @@ public class Player : MonoBehaviour
     #region Shader effects
     [Header("Shader effects")]
     public Material WingsGlow;
+    public Material DashGlow;
     public Material PrevRendererMaterial { get; private set; }
 
     #endregion
@@ -47,6 +49,7 @@ public class Player : MonoBehaviour
     public bool ShowGiwmos;
     public Vector2 CurrentVelocity { get; private set; }
     public bool FacingRight { get; private set; }
+    private float _fallSpeedYDampingChangeTreshold;
 
 
     private Vector2 workSpace;
@@ -65,6 +68,7 @@ public class Player : MonoBehaviour
         LandState = new PlayerLandState(this, StateMachine, playerData, "land");
         WallSlideState = new PlayerWallSlideState(this, StateMachine, playerData, "wallSlide");
         WallJumpState = new PlayerWallJumpState(this, StateMachine, playerData, "wallJump");
+        DashState = new PlayerDashState(this, StateMachine, playerData, "dash");
     }
     private void Start()
     {
@@ -72,6 +76,8 @@ public class Player : MonoBehaviour
         InputHandler = GetComponent<PlayerInputHandler>();
         RB = GetComponent<Rigidbody2D>();
         Renderer = GetComponent<SpriteRenderer>();
+
+        _fallSpeedYDampingChangeTreshold = CameraManager.instance._fallSpeedYDampingChangeTreshold;
 
         StateMachine.Initialize(IdleState);
         FacingRight = true;
@@ -82,6 +88,8 @@ public class Player : MonoBehaviour
         CurrentVelocity = RB.velocity;
         StateMachine.CurrentState.DoChecks();
         StateMachine.CurrentState.LogicUpdate();
+
+        CameraYDamping();
     }
     private void FixedUpdate()
     {
@@ -163,6 +171,20 @@ public class Player : MonoBehaviour
         {
             Gizmos.DrawWireSphere(groundCheck.position, playerData.GroundCheckRadius);
             Gizmos.DrawWireSphere(wallCheck.position, playerData.WallCheckRadius);
+        }
+    }
+    void CameraYDamping()
+    {
+        if (RB.velocity.y < _fallSpeedYDampingChangeTreshold && !CameraManager.instance.IsLerpingYDamping &&
+            !CameraManager.instance.LerpedFromPlayerFalling)
+        {
+            CameraManager.instance.LerpYDamping(true);
+        }
+
+        if (RB.velocity.y >= 0 && !CameraManager.instance.IsLerpingYDamping && CameraManager.instance.LerpedFromPlayerFalling)
+        {
+            CameraManager.instance.LerpedFromPlayerFalling = false;
+            CameraManager.instance.LerpYDamping(false);
         }
     }
     #endregion

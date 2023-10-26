@@ -24,6 +24,11 @@ public class PlayerData : ScriptableObject
     public Vector2 WallJumpAngle = new Vector2(3f, 3f);
     public float WallJumpTime = .2f;
 
+    [Header("Dash state")]
+    public float DashCoolDown = 1.5f;
+    public float DashSpeed = 50f;
+    public float DashTime = .15f;
+
     [Header("Check variables")]
     public float GroundCheckRadius = .4f;
     public LayerMask WhatIsGround;

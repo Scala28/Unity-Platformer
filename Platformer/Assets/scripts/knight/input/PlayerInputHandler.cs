@@ -15,14 +15,16 @@ public class PlayerInputHandler : MonoBehaviour
     public Vector2 RawMovementInput { get; private set; }
     public float InputX { get; private set; }
     public float InputY { get; private set; }
-    public bool JumpInput;
-    public bool JumpHoldInput;
+    public bool JumpInput { get; private set; }
+    public bool JumpHoldInput { get; private set; }
+    public bool DashInput { get; private set; }
     #endregion
 
     #region Input Options
     [SerializeField]
     private float inputHoldTime = .2f;
     private float jumpInputStartTime;
+    private float dashInputStartTime;
     #endregion
 
     #region Smooth movement input
@@ -41,23 +43,24 @@ public class PlayerInputHandler : MonoBehaviour
     }
     private void Update()
     {
-        RawMovementInput = moveAction.ReadValue<Vector2>();
+        //RawMovementInput = moveAction.ReadValue<Vector2>();
         currentMovementInput = Vector2.SmoothDamp(currentMovementInput, RawMovementInput, ref smoothInputVelocity, smoothInputSpeed);
         InputX = currentMovementInput.x;
         InputY = currentMovementInput.y;
-        Debug.Log(InputX);
 
-        CheckInputHoldTime();
+        CheckJumpInputHoldTime();
+        CeckDashInputHoldTime();
     }
 
     #region Input event callbacks
-    //public void OnMoveInput(InputAction.CallbackContext context)
-    //{
-    //    RawMovementInput = context.ReadValue<Vector2>();
-    //    Debug.Log(currentMovementInput);
-    //    InputX = (RawMovementInput * Vector2.right).x;
-    //    InputY = (RawMovementInput * Vector2.up).y;
-    //}
+    public void OnMoveInput(InputAction.CallbackContext context)
+    {
+        RawMovementInput = context.ReadValue<Vector2>();
+        Debug.Log(RawMovementInput);
+        //currentMovementInput = Vector2.SmoothDamp(currentMovementInput, RawMovementInput, ref smoothInputVelocity, smoothInputSpeed);
+        //InputX = currentMovementInput.x;
+        //InputY = currentMovementInput.y;
+    }
     public void OnJumpInput(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -74,22 +77,38 @@ public class PlayerInputHandler : MonoBehaviour
             JumpHoldInput = false;
         }
     }
+    public void OnDashInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            DashInput = true;
+            dashInputStartTime = Time.time;
+        }
+    }
     #endregion
 
     #region Setter
     public void UseJump() => JumpInput = false;
-
     public void UseJumpHold() => JumpHoldInput = false;
+    public void UseDashInput() => DashInput = false;
     #endregion
 
     #region Checks
-    private void CheckInputHoldTime()
+    private void CheckJumpInputHoldTime()
     {
         if(JumpInput && Time.time >= jumpInputStartTime + inputHoldTime)
         {
             JumpInput = false;
         }
     }
+    private void CeckDashInputHoldTime()
+    {
+        if (DashInput && Time.time >= dashInputStartTime + inputHoldTime)
+        {
+            DashInput = false;
+        }
+    }
+
     #endregion
 
 }

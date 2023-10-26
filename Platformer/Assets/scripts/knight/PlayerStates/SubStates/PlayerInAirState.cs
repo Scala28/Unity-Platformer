@@ -5,9 +5,11 @@ using UnityEngine;
 public class PlayerInAirState : PlayerState
 {
     private float xInput;
-    private bool isGrounded, isTouchingWall;
-    private float jumpHoldTime;
     private bool jumpInput;
+    private float jumpHoldTime;
+    private bool dashInput;
+
+    private bool isGrounded, isTouchingWall;
     private bool canHoldJump;
     public PlayerInAirState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) 
         : base(player, stateMachine, playerData, animBoolName)
@@ -39,6 +41,7 @@ public class PlayerInAirState : PlayerState
         HoldJump();
         xInput = player.InputHandler.InputX;
         jumpInput = player.InputHandler.JumpInput;
+        dashInput = player.InputHandler.DashInput;
         if(isGrounded && player.CurrentVelocity.y < .01f)
         {
             player.Anim.SetFloat("yVelocity", 0f);
@@ -49,14 +52,13 @@ public class PlayerInAirState : PlayerState
             player.InputHandler.UseJump();
             stateMachine.ChangeState(player.JumpState);
         }
-        else if (isTouchingWall)
+        else if (isTouchingWall && ((player.InputHandler.RawMovementInput.x > 0 && player.FacingDirection() == 1) ||
+                (player.InputHandler.RawMovementInput.x < 0 && player.FacingDirection() == -1)) && !(player.CurrentVelocity.y > 0))
         {
-            if(((player.InputHandler.RawMovementInput.x > 0 && player.FacingDirection() == 1) || 
-                (player.InputHandler.RawMovementInput.x < 0 && player.FacingDirection() == -1 )) && !(player.CurrentVelocity.y > 0))
-            {
-                stateMachine.ChangeState(player.WallSlideState);
-
-            }
+            stateMachine.ChangeState(player.WallSlideState);
+        }else if(dashInput && player.DashState.CheckCanDash()){
+            player.InputHandler.UseDashInput();
+            stateMachine.ChangeState(player.DashState); 
         }
         else
         {
