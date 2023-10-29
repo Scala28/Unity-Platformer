@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAbilityState : PlayerState
 {
     protected bool isAbilityDone;
-    protected float xInput;
+    protected float xInput, yInput;
     private bool isGrounded;
     public PlayerAbilityState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) 
         : base(player, stateMachine, playerData, animBoolName)
@@ -33,9 +33,14 @@ public class PlayerAbilityState : PlayerState
     {
         base.LogicUpdate();
         xInput = player.InputHandler.InputX;
+        yInput = player.InputHandler.InputY;
         if (isAbilityDone)
         {
-            if (isGrounded && player.CurrentVelocity.y < .01f)
+            if (player.InputHandler.AttackInputs[(int)CombatInputs.sword])
+            {
+                stateMachine.ChangeState(player.AttackState);
+            }
+            else if (isGrounded && player.CurrentVelocity.y < .01f)
             {
                 stateMachine.ChangeState(player.IdleState);
             }

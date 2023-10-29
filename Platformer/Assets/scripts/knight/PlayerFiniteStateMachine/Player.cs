@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public PlayerWallSlideState WallSlideState { get; private set; }
     public PlayerWallJumpState WallJumpState { get; private set; }
     public PlayerDashState DashState { get; private set; }
+    public PlayerAttackState AttackState { get; private set; }
 
     [SerializeField]
     private PlayerData playerData;
@@ -40,6 +41,7 @@ public class Player : MonoBehaviour
     [Header("Shader effects")]
     public Material WingsGlow;
     public Material DashGlow;
+    public Material AttackGlow;
     public Material PrevRendererMaterial { get; private set; }
 
     #endregion
@@ -69,6 +71,7 @@ public class Player : MonoBehaviour
         WallSlideState = new PlayerWallSlideState(this, StateMachine, playerData, "wallSlide");
         WallJumpState = new PlayerWallJumpState(this, StateMachine, playerData, "wallJump");
         DashState = new PlayerDashState(this, StateMachine, playerData, "dash");
+        AttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
     }
     private void Start()
     {
@@ -153,6 +156,8 @@ public class Player : MonoBehaviour
     }
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
     private void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
+    private void AnimationStartMovementTrigger() => StateMachine.CurrentState.AnimationStartMovementTrigger();
+    private void AnimationStopMovementTrigger() => StateMachine.CurrentState.AnimationStopMovementTrigger();
     private void Flip()
     {
         FacingRight = !FacingRight;

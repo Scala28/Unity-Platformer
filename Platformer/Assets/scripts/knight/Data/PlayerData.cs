@@ -29,6 +29,10 @@ public class PlayerData : ScriptableObject
     public float DashSpeed = 50f;
     public float DashTime = .15f;
 
+    [Header("Attack state")]
+    public float AttackMovementSpeed = 7f;
+    public float AttackStreakTime = .4f;
+
     [Header("Check variables")]
     public float GroundCheckRadius = .4f;
     public LayerMask WhatIsGround;

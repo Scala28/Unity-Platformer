@@ -15,6 +15,8 @@ public class PlayerState
 
     protected bool isExitingState;
 
+    protected bool animMovementTrigger;
+
     public PlayerState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName)
     {
         this.player = player;
@@ -48,4 +50,6 @@ public class PlayerState
     }
     public virtual void AnimationTrigger() { }
     public virtual void AnimationFinishTrigger() => isAnimationFinished = true;
+    public virtual void AnimationStartMovementTrigger() => animMovementTrigger = true;
+    public virtual void AnimationStopMovementTrigger() => animMovementTrigger = false;
 }

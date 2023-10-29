@@ -42,7 +42,11 @@ public class PlayerInAirState : PlayerState
         xInput = player.InputHandler.InputX;
         jumpInput = player.InputHandler.JumpInput;
         dashInput = player.InputHandler.DashInput;
-        if(isGrounded && player.CurrentVelocity.y < .01f)
+        if (player.InputHandler.AttackInputs[(int)CombatInputs.sword])
+        {
+            stateMachine.ChangeState(player.AttackState);
+        }
+        else if (isGrounded && player.CurrentVelocity.y < .01f)
         {
             player.Anim.SetFloat("yVelocity", 0f);
             stateMachine.ChangeState(player.LandState);

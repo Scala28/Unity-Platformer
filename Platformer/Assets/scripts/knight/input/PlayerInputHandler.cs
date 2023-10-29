@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,7 @@ public class PlayerInputHandler : MonoBehaviour
     public bool JumpInput { get; private set; }
     public bool JumpHoldInput { get; private set; }
     public bool DashInput { get; private set; }
+    public bool[] AttackInputs { get; private set; }
     #endregion
 
     #region Input Options
@@ -25,6 +27,7 @@ public class PlayerInputHandler : MonoBehaviour
     private float inputHoldTime = .2f;
     private float jumpInputStartTime;
     private float dashInputStartTime;
+    private float attackInputStartTime;
     #endregion
 
     #region Smooth movement input
@@ -40,6 +43,9 @@ public class PlayerInputHandler : MonoBehaviour
         moveAction = _playerInput.actions["Movement"];
         jumpAction = _playerInput.actions["Jump"];
         currentMovementInput = Vector2.zero;
+
+        int count = Enum.GetValues(typeof(CombatInputs)).Length;
+        AttackInputs = new bool[count];
     }
     private void Update()
     {
@@ -85,6 +91,17 @@ public class PlayerInputHandler : MonoBehaviour
             dashInputStartTime = Time.time;
         }
     }
+    public void OnAttackInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            AttackInputs[(int)CombatInputs.sword] = true;
+            attackInputStartTime = Time.time;
+        }else if (context.canceled)
+        {
+            AttackInputs[(int)CombatInputs.sword] = false;
+        }
+    }
     #endregion
 
     #region Setter
@@ -111,4 +128,8 @@ public class PlayerInputHandler : MonoBehaviour
 
     #endregion
 
+}
+public enum CombatInputs
+{
+    sword
 }

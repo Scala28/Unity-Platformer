@@ -33,9 +33,13 @@ public class PlayerGroundedState : PlayerState
         base.LogicUpdate();
         xInput = player.InputHandler.InputX;
         JumpInput = player.InputHandler.JumpInput;
-        dashInput = player.InputHandler.DashInput;
+        dashInput = player.InputHandler.DashInput; 
 
-        if (JumpInput && player.JumpState.CanJump())
+        if (player.InputHandler.AttackInputs[(int)CombatInputs.sword])
+        {
+            stateMachine.ChangeState(player.AttackState);
+        }
+        else if (JumpInput && player.JumpState.CanJump())
         {
             player.InputHandler.UseJump();
             stateMachine.ChangeState(player.JumpState);
