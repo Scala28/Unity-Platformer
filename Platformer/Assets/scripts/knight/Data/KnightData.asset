@@ -25,6 +25,12 @@ MonoBehaviour:
   DashSpeed: 40
   DashTime: 0.2
   AttackMovementSpeed: 15
+  AttackStreakTime: 0.4
+  SwordDamage: 30
+  SwordRadius: 2
+  WhatIsDamageable:
+    serializedVersion: 2
+    m_Bits: 128
   GroundCheckRadius: 0.4
   WhatIsGround:
     serializedVersion: 2

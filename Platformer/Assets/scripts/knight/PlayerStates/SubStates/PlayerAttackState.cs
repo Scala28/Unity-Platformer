@@ -1,7 +1,7 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerAttackState : PlayerAbilityState
 {
@@ -10,6 +10,8 @@ public class PlayerAttackState : PlayerAbilityState
 
     private bool attackStreak;
     private float lastAttackTime;
+
+    private float[] attackDetails = new float[3];
     public PlayerAttackState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
         int count = Enum.GetValues(typeof(AttackAnimation)).Length;
@@ -23,20 +25,6 @@ public class PlayerAttackState : PlayerAbilityState
         isAbilityDone = true;
     }
 
-    public override void AnimationStartMovementTrigger()
-    {
-        base.AnimationStartMovementTrigger();
-    }
-
-    public override void AnimationStopMovementTrigger()
-    {
-        base.AnimationStopMovementTrigger();
-    }
-
-    public override void AnimationTrigger()
-    {
-        base.AnimationTrigger();
-    }
 
     public override void DoChecks()
     {
@@ -47,18 +35,18 @@ public class PlayerAttackState : PlayerAbilityState
     {
         base.Enter();
         attackStreak = Time.time < lastAttackTime + playerData.AttackStreakTime;
-        if(player.AttackGlow != null)
+        if (player.AttackGlow != null)
         {
             player.SetRendererMaterial(player.AttackGlow);
         }
-        if(!attackStreak)
+        if (!attackStreak)
         {
             animCounter = 0;
         }
         else
         {
             animCounter++;
-            if(animCounter >= attackAnim.Length)
+            if (animCounter >= attackAnim.Length)
             {
                 animCounter = animCounter % attackAnim.Length;
             }
@@ -69,7 +57,7 @@ public class PlayerAttackState : PlayerAbilityState
     public override void Exit()
     {
         base.Exit();
-        if(player.AttackGlow != null)
+        if (player.AttackGlow != null)
         {
             player.SetRendererMaterial(player.PrevRendererMaterial);
         }
@@ -79,22 +67,39 @@ public class PlayerAttackState : PlayerAbilityState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        player.CheckFlip(xInput);
         player.SetVelocityX(playerData.MovementSpeed * xInput);
         if (animMovementTrigger)
         {
             player.SetVelocityX(playerData.AttackMovementSpeed * player.FacingDirection());
+            player.SetVelocityY(0f);
         }
-        else { player.SetVelocityX(0f); }
+        else
+        {
+            player.SetVelocityX(0f);
+            player.CheckFlip(xInput);
+        }
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
     }
+
+    public void DealDamage()
+    {
+        Collider2D[] detectedObjs = Physics2D.OverlapCircleAll(player.GetAttackPosition(), playerData.SwordRadius, playerData.WhatIsDamageable);
+        attackDetails[0] = playerData.SwordDamage;
+        attackDetails[1] = player.transform.position.x;
+        attackDetails[2] = player.transform.position.y;
+        foreach (Collider2D collider in detectedObjs)
+        {
+            collider.transform.SendMessage("Damage", attackDetails);
+            //TODO: instantiate hit particle
+        }
+    }
 }
 public enum AttackAnimation
 {
     swordOne,
-    swordTwo
+    //swordTwo
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     #region State Variable
+    public Core Core { get; private set; }
     public PlayerStateMachine StateMachine { get; private set; }
 
     public PlayerIdleState IdleState { get; private set; }
@@ -35,6 +36,8 @@ public class Player : MonoBehaviour
     private Transform groundCheck;
     [SerializeField]
     private Transform wallCheck;
+    [SerializeField]
+    private Transform attackPosition;
     #endregion
 
     #region Shader effects
@@ -61,6 +64,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        Core = GetComponent<Core>();
         StateMachine = new PlayerStateMachine();
 
         IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle");
@@ -158,6 +162,7 @@ public class Player : MonoBehaviour
     private void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
     private void AnimationStartMovementTrigger() => StateMachine.CurrentState.AnimationStartMovementTrigger();
     private void AnimationStopMovementTrigger() => StateMachine.CurrentState.AnimationStopMovementTrigger();
+    private void AttackAnimationDealdamage() => AttackState.DealDamage();
     private void Flip()
     {
         FacingRight = !FacingRight;
@@ -169,13 +174,17 @@ public class Player : MonoBehaviour
     {
         Renderer.flipX = !Renderer.flipX;
     }
-
+    public Vector2 GetAttackPosition()
+    {
+        return attackPosition.position;
+    }
     private void OnDrawGizmosSelected()
     {
         if (ShowGiwmos)
         {
             Gizmos.DrawWireSphere(groundCheck.position, playerData.GroundCheckRadius);
             Gizmos.DrawWireSphere(wallCheck.position, playerData.WallCheckRadius);
+            Gizmos.DrawWireSphere(attackPosition.position, playerData.SwordRadius);
         }
     }
     void CameraYDamping()

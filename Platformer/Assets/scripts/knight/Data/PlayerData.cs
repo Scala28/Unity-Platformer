@@ -32,6 +32,9 @@ public class PlayerData : ScriptableObject
     [Header("Attack state")]
     public float AttackMovementSpeed = 7f;
     public float AttackStreakTime = .4f;
+    public float SwordDamage = 30f;
+    public float SwordRadius;
+    public LayerMask WhatIsDamageable;
 
     [Header("Check variables")]
     public float GroundCheckRadius = .4f;

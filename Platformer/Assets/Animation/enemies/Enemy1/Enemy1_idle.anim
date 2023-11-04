@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: baldur_inAttack
+  m_Name: Enemy1_idle
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,13 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 8977813318067524632, guid: 1b3ea9465df9bb249844492d1ba3a0e8, type: 3}
-    - time: 0.16666667
-      value: {fileID: 47726299615860459, guid: 1b3ea9465df9bb249844492d1ba3a0e8, type: 3}
-    - time: 0.33333334
-      value: {fileID: 5308886649123315203, guid: 1b3ea9465df9bb249844492d1ba3a0e8, type: 3}
-    - time: 0.5
-      value: {fileID: 8643215158554450158, guid: 1b3ea9465df9bb249844492d1ba3a0e8, type: 3}
+      value: {fileID: 7268970392813068728, guid: f029719e35fcc5346912b8fe8edfd4bd, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,21 +40,18 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 8977813318067524632, guid: 1b3ea9465df9bb249844492d1ba3a0e8, type: 3}
-    - {fileID: 47726299615860459, guid: 1b3ea9465df9bb249844492d1ba3a0e8, type: 3}
-    - {fileID: 5308886649123315203, guid: 1b3ea9465df9bb249844492d1ba3a0e8, type: 3}
-    - {fileID: 8643215158554450158, guid: 1b3ea9465df9bb249844492d1ba3a0e8, type: 3}
+    - {fileID: 7268970392813068728, guid: f029719e35fcc5346912b8fe8edfd4bd, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.51666665
+    m_StopTime: 0.016666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 0
+    m_LoopTime: 1
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
