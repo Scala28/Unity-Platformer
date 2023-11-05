@@ -5,9 +5,12 @@ using UnityEngine;
 public class EnemyIdleState : EnemyState
 {
     protected D_EnemyIdleState stateData;
-    protected bool flipAfterIdle;
+    protected bool
+        flipAfterIdle,
+        isIdleTimeOver,
+        isDetectingWall,
+        isDetectingLedge;
     protected float idleTime;
-    protected bool isIdleTimeOver;
     public EnemyIdleState(Entity entity, EnemyFiniteStateMachine stateMachine, string animBoolName, D_EnemyIdleState stateData) : base(entity, stateMachine, animBoolName)
     {
         this.stateData = stateData;
@@ -19,20 +22,27 @@ public class EnemyIdleState : EnemyState
         entity.SetVelocityX(0f);
         isIdleTimeOver = false;
         SetRandomIdleTime();
+        isDetectingLedge = entity.CheckLedge();
+        isDetectingWall = entity.CheckWall();
     }
 
     public override void Exit()
     {
         base.Exit();
         if (flipAfterIdle)
+        {
+            flipAfterIdle = false;
             entity.Flip();
+        }
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
         if (Time.time >= startTime + idleTime)
+        {
             isIdleTimeOver = true;
+        }
     }
 
     public override void PhysicsUpdate()

@@ -14,6 +14,8 @@ public class E1_MoveState : EnemyMoveState
     public override void Enter()
     {
         base.Enter();
+        if(!isDetectingWall && isDetectingLedge)
+            enemy.SetVelocityX(stateData.movementSpeed * entity.FacingDirection);
         isPlayerInAttackRange = enemy.CheckPlayerInAttackRange();
     }
 
@@ -26,7 +28,7 @@ public class E1_MoveState : EnemyMoveState
     {
         base.LogicUpdate();
         isPlayerInAttackRange = enemy.CheckPlayerInAttackRange();
-        if (isPlayerInAttackRange)
+        if (isPlayerInAttackRange && !isDetectingWall && isDetectingLedge)
         {
             stateMachine.ChangeState(enemy.AttackState);
         }

@@ -6,6 +6,6 @@ using UnityEngine;
 public class D_EnemyMoveState : ScriptableObject
 {
     [Header("Move state")]
-    public float movementSpeed = 7f;
+    public float movementSpeed = 3f;
 
 }

@@ -14,14 +14,14 @@ public class EnemyMoveState : EnemyState
     public override void Enter()
     {
         base.Enter();
-        entity.SetVelocityX(stateData.movementSpeed);
+        //entity.SetVelocityX(stateData.movementSpeed * entity.FacingDirection);
         isDetectingLedge = entity.CheckLedge();
         isDetectingWall = entity.CheckWall();
     }
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-        entity.SetVelocityX(stateData.movementSpeed);
+        //entity.SetVelocityX(stateData.movementSpeed * entity.FacingDirection);
         isDetectingLedge = entity.CheckLedge();
         isDetectingWall = entity.CheckWall();
     }

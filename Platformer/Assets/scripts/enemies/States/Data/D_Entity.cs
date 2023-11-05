@@ -12,4 +12,7 @@ public class D_Entity : ScriptableObject
         WhatIsWall,
         WhatIsGround,
         WhatIsPlayer;
+
+    public float MaxHealth = 100f;
+    public Vector2 KnockoutDirectionOffset = new Vector2(.5f, .5f);
 }

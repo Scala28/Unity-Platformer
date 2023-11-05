@@ -13,25 +13,26 @@ public class E1_AttackState : EnemyAttackState
     public override void Enter()
     {
         base.Enter();
-        enemy.SetVelocityX(stateData.AttackSpeed);
+        entity.SetCanTakeDamage(false);
+        enemy.SetVelocityX(stateData.AttackSpeed * entity.FacingDirection);
     }
 
     public override void Exit()
     {
         base.Exit();
+        entity.SetCanTakeDamage(true);
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (isAttackTimeOver)
-        {
-            enemy.IdleState.SetFlipAfterIdle(false);
-            stateMachine.ChangeState(enemy.IdleState);
-        }else if(isDetectingWall || !isDetectingLedge)
+        if (isDetectingWall || !isDetectingLedge)
         {
             enemy.IdleState.SetFlipAfterIdle(true);
             stateMachine.ChangeState(enemy.IdleState);
+        }else if(isAttackTimeOver)
+        {
+            stateMachine.ChangeState(enemy.MoveState);
         }
     }
 

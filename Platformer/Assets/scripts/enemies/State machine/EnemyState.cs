@@ -11,6 +11,8 @@ public class EnemyState
 
     protected string animBoolName;
 
+    protected bool isAnimationFinished;
+
     public EnemyState(Entity entity, EnemyFiniteStateMachine stateMachine, string animBoolName)
     {
         this.entity = entity;
@@ -21,6 +23,7 @@ public class EnemyState
     {
         startTime = Time.time;
         entity.Anim.SetBool(animBoolName, true);
+        isAnimationFinished = false;
     }
     public virtual void Exit()
     {
@@ -34,4 +37,6 @@ public class EnemyState
     {
 
     }
+    public virtual void AnimationFinishedTrigger() => isAnimationFinished = true;
+    public virtual void AnimationDealDamage() { }
 }
