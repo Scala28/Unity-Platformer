@@ -36,7 +36,7 @@ public class PlayerAbilityState : PlayerState
         yInput = player.InputHandler.InputY;
         if (isAbilityDone)
         {
-            if (player.InputHandler.AttackInputs[(int)CombatInputs.sword])
+            if (player.InputHandler.AttackInputs[(int)CombatInputs.sword] && player.AttackState.CanAttack())
             {
                 stateMachine.ChangeState(player.AttackState);
             }

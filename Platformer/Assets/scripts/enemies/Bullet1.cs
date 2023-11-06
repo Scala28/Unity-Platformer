@@ -50,23 +50,27 @@ public class Bullet1 : MonoBehaviour
             Flip();
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         DestoyBullet();
 
-        if(collision.CompareTag("Player"))
+        if (collision.collider.CompareTag("Player"))
         {
             //TODO: Hurt the player
         }
     }
 
-    public void DestoyBullet()
+    private void DestoyBullet()
     {
         Destroy(gameObject);
         Instantiate(particle, transform.position, Quaternion.identity);
     }
 
+    public void Damage(float[] attackDetails)
+    {
+        Debug.Log("Destroyed");
+        DestoyBullet();
+    }
     void Flip()
     {
         facingRight = !facingRight;

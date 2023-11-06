@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62075fec5dae4754c9342e12ce36d3a9, type: 3}
   m_Name: E1_KnockoutData
   m_EditorClassIdentifier: 
-  KnockoutSpeed: {x: 15, y: 3}
+  KnockoutSpeed: {x: 15, y: 10}
   KnockoutDuration: 0.15

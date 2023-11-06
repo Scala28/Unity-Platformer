@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 2328692980658477718}
   - component: {fileID: 6376362465097703903}
   - component: {fileID: 2390026344011044551}
-  - component: {fileID: -8556038370987432397}
   - component: {fileID: 1032345606288993544}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Bullet1
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -55,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 3a8b8de558cde0b4d9677954986c883e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -73,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1181712447
+  m_SortingLayerID: 844054627
   m_SortingLayer: 1
   m_SortingOrder: 4
   m_Sprite: {fileID: -5124856102112614477, guid: f015f8ff39e00334781ac83a4d206091, type: 3}
@@ -97,7 +96,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.028859435, y: -0.40402362}
@@ -118,20 +117,6 @@ MonoBehaviour:
   speed: 5
   lifeTime: 4
   particle: {fileID: 118829366904852252, guid: 0a218211eda68b24d8ade3a0c35c2d13, type: 3}
---- !u!114 &-8556038370987432397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3815603921360778660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f455e91e3d485774da856cd381d393db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 20
-  currentHealth: 0
 --- !u!95 &1032345606288993544
 Animator:
   serializedVersion: 3

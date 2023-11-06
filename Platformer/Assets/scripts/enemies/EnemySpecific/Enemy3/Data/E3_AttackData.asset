@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f400aa29456eb86468d7b8f358a3669b, type: 3}
   m_Name: E3_AttackData
   m_EditorClassIdentifier: 
-  AttackDistance: 4
+  AttackDistance: 10
   AttackSpeed: 0
   AttackDuration: 0
   TimeBtwAttack: 1.5

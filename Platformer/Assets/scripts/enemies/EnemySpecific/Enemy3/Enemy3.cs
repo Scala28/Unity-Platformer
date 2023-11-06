@@ -50,6 +50,9 @@ public class Enemy3 : Entity
     public bool CheckAttack()
     {
         RaycastHit2D info = Physics2D.Raycast(transform.position, playerTransform.position - transform.position);
+
+        if (info.collider == null)
+            return true;
         bool inRange = Vector2.Distance(transform.position, playerTransform.position) <= attackStateData.AttackDistance;
 
         return (info.collider.tag == "Player" || info.collider.tag == "Bullet") && inRange;

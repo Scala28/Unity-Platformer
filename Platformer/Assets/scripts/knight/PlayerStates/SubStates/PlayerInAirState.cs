@@ -42,7 +42,7 @@ public class PlayerInAirState : PlayerState
         xInput = player.InputHandler.InputX;
         jumpInput = player.InputHandler.JumpInput;
         dashInput = player.InputHandler.DashInput;
-        if (player.InputHandler.AttackInputs[(int)CombatInputs.sword])
+        if (player.InputHandler.AttackInputs[(int)CombatInputs.sword] && player.AttackState.CanAttack())
         {
             stateMachine.ChangeState(player.AttackState);
         }

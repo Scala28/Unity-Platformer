@@ -31,6 +31,7 @@ public class PlayerData : ScriptableObject
 
     [Header("Attack state")]
     public float AttackMovementSpeed = 7f;
+    public float TimeBtwAttacks = .2f;
     public float AttackStreakTime = .4f;
     public float SwordDamage = 30f;
     public float SwordRadius;

@@ -5,8 +5,9 @@ using System;
 
 public class PlayerAttackState : PlayerAbilityState
 {
-    private int animCounter;
-    private int[] attackAnim;
+    private int
+        animCounter,
+        attackAnimations;
 
     private bool attackStreak;
     private float lastAttackTime;
@@ -14,8 +15,7 @@ public class PlayerAttackState : PlayerAbilityState
     private float[] attackDetails = new float[3];
     public PlayerAttackState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
-        int count = Enum.GetValues(typeof(AttackAnimation)).Length;
-        attackAnim = new int[count];
+        attackAnimations = Enum.GetValues(typeof(AttackAnimation)).Length;
         animCounter = 0;
     }
 
@@ -30,11 +30,15 @@ public class PlayerAttackState : PlayerAbilityState
     {
         base.DoChecks();
     }
-
+    public bool CanAttack()
+    {
+        return Time.time >= lastAttackTime + playerData.TimeBtwAttacks;
+    }
     public override void Enter()
     {
         base.Enter();
         attackStreak = Time.time < lastAttackTime + playerData.AttackStreakTime;
+        lastAttackTime = Time.time;
         if (player.AttackGlow != null)
         {
             player.SetRendererMaterial(player.AttackGlow);
@@ -45,10 +49,11 @@ public class PlayerAttackState : PlayerAbilityState
         }
         else
         {
+            Debug.Log("Rage!!!!!");
             animCounter++;
-            if (animCounter >= attackAnim.Length)
+            if (animCounter >= attackAnimations)
             {
-                animCounter = animCounter % attackAnim.Length;
+                animCounter = animCounter % attackAnimations;
             }
         }
         player.Anim.SetFloat("attackAnim", (float)animCounter);
@@ -67,7 +72,6 @@ public class PlayerAttackState : PlayerAbilityState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        player.SetVelocityX(playerData.MovementSpeed * xInput);
         if (animMovementTrigger)
         {
             player.SetVelocityX(playerData.AttackMovementSpeed * player.FacingDirection());
@@ -75,8 +79,7 @@ public class PlayerAttackState : PlayerAbilityState
         }
         else
         {
-            player.SetVelocityX(0f);
-            player.CheckFlip(xInput);
+            player.SetVelocityX(playerData.MovementSpeed * xInput);
         }
     }
 
@@ -93,11 +96,7 @@ public class PlayerAttackState : PlayerAbilityState
         attackDetails[2] = player.transform.position.y;
         foreach (Collider2D collider in detectedObjs)
         {
-            if(collider.CompareTag("Bullet"))
-            {
-                collider.transform.SendMessage("DestroyBullet");
-            }else
-                collider.transform.SendMessage("Damage", attackDetails);
+            collider.transform.SendMessage("Damage", attackDetails);
 
             //TODO: instantiate hit particle
         }
