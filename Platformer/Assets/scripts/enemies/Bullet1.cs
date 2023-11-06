@@ -2,21 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class slurtBullet : MonoBehaviour
+public class Bullet1 : MonoBehaviour
 {
-    public float speed;
-    private Transform player;
+    [SerializeField]
+    private float 
+        speed,
+        lifeTime;
+    [SerializeField]
+    private GameObject particle;
 
-    public float lifeTime;
     private float lifeCounter;
-
-    public GameObject particle;
-
-    public int bulletDamage;
-
+    private Transform player;
     private bool facingRight = false;
-
     Rigidbody2D rb;
+
 
     // Start is called before the first frame update
     void Start()
@@ -58,20 +57,11 @@ public class slurtBullet : MonoBehaviour
 
         if(collision.CompareTag("Player"))
         {
-            int direction = 0;
-            if(transform.position.x < player.position.x)
-            {
-                direction = -1;
-            }
-            else if(transform.position.x > player.position.x)
-            {
-                direction = 1;
-            }
-            collision.GetComponent<Health>().TakeDamage(bulletDamage, direction);
+            //TODO: Hurt the player
         }
     }
 
-    void DestoyBullet()
+    public void DestoyBullet()
     {
         Destroy(gameObject);
         Instantiate(particle, transform.position, Quaternion.identity);
@@ -80,8 +70,7 @@ public class slurtBullet : MonoBehaviour
     void Flip()
     {
         facingRight = !facingRight;
-        Vector3 Scaler = transform.localScale;
-        Scaler.x *= -1;
-        transform.localScale = Scaler;
+        transform.Rotate(0f, 180f, 0f);
     }
+
 }

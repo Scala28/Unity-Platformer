@@ -99,6 +99,4 @@ public class patrolEnemy : MonoBehaviour
             movingRight = true;
         }
     }
-
-
 }

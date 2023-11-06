@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3360328254898957538}
   m_Layer: 7
-  m_Name: wallDetec
+  m_Name: wallCheck
   m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -41,11 +41,12 @@ GameObject:
   - component: {fileID: 5733553196282814896}
   - component: {fileID: 5733553196282814897}
   - component: {fileID: 5733553196282814898}
-  - component: {fileID: 5733553196282814927}
-  - component: {fileID: -3667429687166990245}
+  - component: {fileID: 2014402338033347094}
   - component: {fileID: 7047688464450870937}
+  - component: {fileID: 6826943381508617011}
+  - component: {fileID: 2684257789153691625}
   m_Layer: 7
-  m_Name: patrolEnemies
+  m_Name: Enemy3
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +88,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 3a8b8de558cde0b4d9677954986c883e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -129,48 +130,33 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 3c026739be1608244bf986615a07624d, type: 2}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.19489321, y: -0.12941512}
   serializedVersion: 2
   m_Radius: 2.3141434
---- !u!114 &5733553196282814927
-MonoBehaviour:
+--- !u!50 &2014402338033347094
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5733553196282814900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6829794a2289a5746b90458be1ed650d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  groundDetec: {fileID: 5733553196417227414}
-  wallDetec: {fileID: 3360328254898957538}
-  whatIsWall:
-    serializedVersion: 2
-    m_Bits: 72
-  attackDistance: 10
-  canAttack: 0
-  shootingTime: 2
-  slurtAttack: {fileID: 3815603921360778660, guid: 8e02f646ec7f09342a38e0a85301443e, type: 3}
---- !u!114 &-3667429687166990245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5733553196282814900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f455e91e3d485774da856cd381d393db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!95 &7047688464450870937
 Animator:
   serializedVersion: 3
@@ -190,6 +176,42 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6826943381508617011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5733553196282814900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8044c2a012b90c843ab5619b5d1d4787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EntityData: {fileID: 11400000, guid: 99d7174db902bbd4fb63af11fddd41c5, type: 2}
+  wallCheck: {fileID: 3360328254898957538}
+  ledgeCheck: {fileID: 5733553196417227414}
+  idleStateData: {fileID: 11400000, guid: 0c88f2897a91e494ba31f50c259058b4, type: 2}
+  moveStateData: {fileID: 11400000, guid: ae2e430621a10764895b6b2608b89703, type: 2}
+  attackStateData: {fileID: 11400000, guid: 6f0147126599b0c4dbfc7464db720b21, type: 2}
+  knockoutStateData: {fileID: 11400000, guid: e53b88a3fa6d5e543a94cfd0d60c21c3, type: 2}
+  deadStateData: {fileID: 11400000, guid: 919b3f3a2d46ebe4db63dde8ce67fae4, type: 2}
+  bullet: {fileID: 3815603921360778660, guid: 8e02f646ec7f09342a38e0a85301443e, type: 3}
+--- !u!114 &2684257789153691625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5733553196282814900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f22ba2b016bb3964b8a452ff81ccf29d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flashColor: {r: 1, g: 0.23529412, b: 0, a: 1}
+  _flashTime: 0.3
+  _intensity: 5
 --- !u!1 &5733553196417227415
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,9 +222,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5733553196417227414}
   m_Layer: 7
-  m_Name: groundDetec
+  m_Name: ledgeCheck
   m_TagString: Untagged
-  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

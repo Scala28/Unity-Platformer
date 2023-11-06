@@ -10,6 +10,11 @@ public class E1_AttackState : EnemyAttackState
         this.enemy = enemy;
     }
 
+    public override bool CanAttack()
+    {
+        return base.CanAttack();
+    }
+
     public override void Enter()
     {
         base.Enter();

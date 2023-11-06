@@ -31,7 +31,7 @@ public class attackController : MonoBehaviour
 
         foreach(Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<enemyHealth>().TakeDamage(damage);
+            //enemy.GetComponent<enemyHealth>().TakeDamage(damage);
         }
     }
 

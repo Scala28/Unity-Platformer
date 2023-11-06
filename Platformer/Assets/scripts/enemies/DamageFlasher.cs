@@ -20,7 +20,6 @@ public class DamageFlasher : MonoBehaviour
     }
     public void Flash()
     {
-        Debug.Log("Flash");
         damageFlashCoroutine = StartCoroutine(DamageFlash());
     }
     private IEnumerator DamageFlash()

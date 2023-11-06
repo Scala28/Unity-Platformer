@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 2390026344011044551}
   - component: {fileID: -8556038370987432397}
   - component: {fileID: 1032345606288993544}
-  m_Layer: 0
-  m_Name: slurtAttack
+  m_Layer: 10
+  m_Name: Bullet1
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,7 +118,6 @@ MonoBehaviour:
   speed: 5
   lifeTime: 4
   particle: {fileID: 118829366904852252, guid: 0a218211eda68b24d8ade3a0c35c2d13, type: 3}
-  bulletDamage: 1
 --- !u!114 &-8556038370987432397
 MonoBehaviour:
   m_ObjectHideFlags: 0

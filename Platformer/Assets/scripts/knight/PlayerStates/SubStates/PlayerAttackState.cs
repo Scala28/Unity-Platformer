@@ -93,7 +93,12 @@ public class PlayerAttackState : PlayerAbilityState
         attackDetails[2] = player.transform.position.y;
         foreach (Collider2D collider in detectedObjs)
         {
-            collider.transform.SendMessage("Damage", attackDetails);
+            if(collider.CompareTag("Bullet"))
+            {
+                collider.transform.SendMessage("DestroyBullet");
+            }else
+                collider.transform.SendMessage("Damage", attackDetails);
+
             //TODO: instantiate hit particle
         }
     }
