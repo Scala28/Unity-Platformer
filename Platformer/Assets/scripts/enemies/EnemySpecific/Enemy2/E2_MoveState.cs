@@ -32,7 +32,8 @@ public class E2_MoveState : EnemyMoveState
         {
             enemy.IdleState.SetFlipAfterIdle(true);
             stateMachine.ChangeState(enemy.IdleState);
-        }
+        }else
+            entity.SetVelocityX(stateData.movementSpeed * entity.FacingDirection);
     }
 
     public override void PhysicsUpdate()

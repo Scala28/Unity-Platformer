@@ -23,7 +23,7 @@ public class E2_KnockoutState : EnemyKnockoutState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (isKnockoutTimeOver)
+        if (isKnockoutTimeOver && enemy.CheckLedge())
         {
             stateMachine.ChangeState(enemy.MoveState);
         }

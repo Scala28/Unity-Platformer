@@ -5659,7 +5659,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.245223, y: 1}
+    m_SensorSize: {x: 2.252396, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5676,7 +5676,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 130156209}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.5960693, y: -1.3822417, z: -13.5092125}
+  m_LocalPosition: {x: -2.4039307, y: -0.38224173, z: -13.5092125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1650593547}
@@ -13270,7 +13270,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.5960693, y: -1.3822417, z: -13.5092125}
+  m_LocalPosition: {x: -2.4039307, y: -0.38224173, z: -13.5092125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1320539599}
@@ -30604,11 +30604,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9089629472013606402, guid: fe874c2c875ea7440817d97f01bcd9e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 93
+      value: 87
       objectReference: {fileID: 0}
     - target: {fileID: 9089629472013606402, guid: fe874c2c875ea7440817d97f01bcd9e7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9089629472013606402, guid: fe874c2c875ea7440817d97f01bcd9e7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -31024,18 +31024,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7743423813350594775, guid: c6bf60fef66b7084c8b72d510748a9df, type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7743423813350594775, guid: c6bf60fef66b7084c8b72d510748a9df, type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7743423813350594775, guid: c6bf60fef66b7084c8b72d510748a9df, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1181712447
-      objectReference: {fileID: 0}
     - target: {fileID: 7743423813350594794, guid: c6bf60fef66b7084c8b72d510748a9df, type: 3}
       propertyPath: drawGizmos
       value: 1
@@ -31050,7 +31038,7 @@ PrefabInstance:
       objectReference: {fileID: 4958183759629370186}
     - target: {fileID: 7743423813350594796, guid: c6bf60fef66b7084c8b72d510748a9df, type: 3}
       propertyPath: m_Name
-      value: gigaBee
+      value: Enemy4
       objectReference: {fileID: 0}
     - target: {fileID: 7743423813350594796, guid: c6bf60fef66b7084c8b72d510748a9df, type: 3}
       propertyPath: m_IsActive

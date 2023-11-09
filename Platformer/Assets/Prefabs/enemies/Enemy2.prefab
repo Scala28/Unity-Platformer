@@ -78,7 +78,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1181712447
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 4047830196741639959, guid: 5096995d6cd96cd48ab39e91885476d4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -165,8 +165,8 @@ MonoBehaviour:
   idleStateData: {fileID: 11400000, guid: 40655b506458a7048a0a62f6aead0ea4, type: 2}
   moveStateData: {fileID: 11400000, guid: d6ae675536448b94f813fb6df5b51d31, type: 2}
   attackStateData: {fileID: 11400000, guid: 6b25bbab17f821544a61d117dbf67fd2, type: 2}
-  knockoutStateData: {fileID: 11400000, guid: 13fcbe02c2fba994c8612bd7a49706ef, type: 2}
-  deadStateData: {fileID: 11400000, guid: 3ff5dd1a4f563534b94183b798553b3f, type: 2}
+  knockoutStateData: {fileID: 11400000, guid: 2b3b1bc5d914034478d26ea564bdf8ca, type: 2}
+  deadStateData: {fileID: 11400000, guid: 7ed6ab7c37e116040a7c1b4b56c44e36, type: 2}
   playerCheck: {fileID: 924068359348804985}
 --- !u!114 &5513795775691436322
 MonoBehaviour:
