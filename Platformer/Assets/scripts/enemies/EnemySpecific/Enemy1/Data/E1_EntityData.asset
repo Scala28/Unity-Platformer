@@ -25,3 +25,4 @@ MonoBehaviour:
     m_Bits: 256
   MaxHealth: 100
   KnockoutDirectionOffset: {x: 0.5, y: 0.5}
+  DamageParticle: {fileID: 1089974239982237435, guid: e9246475a4da37349b076c91e4312ae1, type: 3}

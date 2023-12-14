@@ -25,8 +25,8 @@ MonoBehaviour:
   DashSpeed: 40
   DashTime: 0.2
   AttackMovementSpeed: 15
-  TimeBtwAttacks: 0.3
-  AttackStreakTime: 0.4
+  TimeBtwAttacks: 0.2
+  AttackStreakTime: 0.3
   SwordDamage: 30
   SwordRadius: 2
   WhatIsDamageable:

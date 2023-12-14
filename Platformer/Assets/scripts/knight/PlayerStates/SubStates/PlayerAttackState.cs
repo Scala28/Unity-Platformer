@@ -17,12 +17,14 @@ public class PlayerAttackState : PlayerAbilityState
     {
         attackAnimations = Enum.GetValues(typeof(AttackAnimation)).Length;
         animCounter = 0;
+        isAbilityDone = true;
     }
 
     public override void AnimationFinishTrigger()
     {
         base.AnimationFinishTrigger();
         isAbilityDone = true;
+        lastAttackTime = Time.time;
     }
 
 
@@ -32,13 +34,12 @@ public class PlayerAttackState : PlayerAbilityState
     }
     public bool CanAttack()
     {
-        return Time.time >= lastAttackTime + playerData.TimeBtwAttacks;
+        return Time.time >= lastAttackTime + playerData.TimeBtwAttacks && isAbilityDone;
     }
     public override void Enter()
     {
         base.Enter();
         attackStreak = Time.time < lastAttackTime + playerData.AttackStreakTime;
-        lastAttackTime = Time.time;
         if (player.AttackGlow != null)
         {
             player.SetRendererMaterial(player.AttackGlow);
@@ -66,7 +67,6 @@ public class PlayerAttackState : PlayerAbilityState
         {
             player.SetRendererMaterial(player.PrevRendererMaterial);
         }
-        lastAttackTime = Time.time;
     }
 
     public override void LogicUpdate()

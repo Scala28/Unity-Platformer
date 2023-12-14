@@ -52,6 +52,7 @@ public class PlayerGroundedState : PlayerState
         else if (dashInput && player.DashState.CheckCanDash())
         {
             player.InputHandler.UseDashInput();
+            player.JumpState.DecreaseJumpsLeft();
             stateMachine.ChangeState(player.DashState);
         }
     }

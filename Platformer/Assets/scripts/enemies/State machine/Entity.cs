@@ -95,7 +95,8 @@ public class Entity : MonoBehaviour
                 damageDirection.y = -1f;
             else if(attackDetails[2] < transform.position.y - EntityData.KnockoutDirectionOffset.y) damageDirection.y = 1f;
 
-            //TODO: Spawn particles
+            if(EntityData.DamageParticle != null)
+                Instantiate(EntityData.DamageParticle, transform.position, Quaternion.identity);
         }
     }
     public virtual void CallDamageFlash()

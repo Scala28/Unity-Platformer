@@ -116,7 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   lifeTime: 4
-  particle: {fileID: 118829366904852252, guid: 0a218211eda68b24d8ade3a0c35c2d13, type: 3}
+  particle: {fileID: 1089974239982237435, guid: e9246475a4da37349b076c91e4312ae1, type: 3}
 --- !u!95 &1032345606288993544
 Animator:
   serializedVersion: 3
