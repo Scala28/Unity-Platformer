@@ -26,7 +26,7 @@ public class CameraManager : MonoBehaviour
     private CinemachineFramingTransposer _framingTransposer;
     private Coroutine _cameraFaceDirection, _lerpYPan, _panCamera;
 
-    private characterController _player;
+    private Player _player;
 
     private Vector2 _startTrackedObjectOffset;
 
@@ -36,7 +36,7 @@ public class CameraManager : MonoBehaviour
         {
             instance = this;
         }
-        _player = _playerTransform.gameObject.GetComponent<characterController>();
+        _player = _playerTransform.gameObject.GetComponent<Player>();
         for(int i=0; i<_allCameras.Length; i++)
         {
             if (_allCameras[i].enabled)
@@ -75,7 +75,7 @@ public class CameraManager : MonoBehaviour
     private float DetermineEndPoint()
     {
 
-        if (_player.facingRight)
+        if (_player.FacingRight)
         {
             return 0.45f;
         }

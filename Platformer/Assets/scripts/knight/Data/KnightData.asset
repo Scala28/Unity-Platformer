@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf74a9c64337f6e44a6b4b137cf4785d, type: 3}
+  m_Name: KnightData
+  m_EditorClassIdentifier: 
+  MovementSpeed: 17
+  JumpForce: 14
+  JumpHoldTime: 0.17
+  AmountOfJumps: 2
+  InAirMovementControl: 0.8
+  WallSlideSpeed: 0.5
+  WallJumpForce: 15
+  WallJumpAngle: {x: 1, y: 3}
+  WallJumpTime: 0.2
+  DashCoolDown: 1
+  DashSpeed: 40
+  DashTime: 0.2
+  AttackMovementSpeed: 15
+  TimeBtwAttacks: 0.2
+  AttackStreakTime: 0.3
+  SwordDamage: 30
+  SwordRadius: 2
+  WhatIsDamageable:
+    serializedVersion: 2
+    m_Bits: 2176
+  GroundCheckRadius: 0.4
+  WhatIsGround:
+    serializedVersion: 2
+    m_Bits: 8
+  WallCheckRadius: 0.4
+  WhatIsWall:
+    serializedVersion: 2
+    m_Bits: 64
